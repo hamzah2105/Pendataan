@@ -26,7 +26,7 @@ public function login(Request $request)
             session(['berhasil_login' => true]);
 
             // Redirect ke halaman yang sesuai
-            return redirect('/pendataan');
+            return redirect('/pendataan/create');
         }
     }
 

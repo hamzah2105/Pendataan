@@ -8,15 +8,11 @@ use App\Models\JenisBarang;
 
 class PendataanBarangController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // Menampilkan daftar barang
     public function index()
     {
-        $datas = Barang::all();
-        $jenisBarang = JenisBarang::all();
+        $datas = Barang::all(); // Mengambil semua data barang
+        $jenisBarang = JenisBarang::all(); // Mengambil semua data jenis barang
 
         return view('pendataan.home', compact(
             'datas',
@@ -24,27 +20,22 @@ class PendataanBarangController extends Controller
         ));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $model = new Barang;
-        $jenisBarang = JenisBarang::all();
-        return view('pendataan.create', compact(
-            'model',
-            'jenisBarang',
-        ));
-    }
+    // Menampilkan form untuk menambahkan barang baru
+public function create()
+{
+    $datas = Barang::all(); // Menambahkan ini untuk memastikan variabel $datas tersedia di view
+    $model = new Barang;
+    $jenisBarang = JenisBarang::all();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    return view('pendataan.create', compact(
+        'model',
+        'jenisBarang',
+        'datas' // Menambahkan $datas ke dalam compact
+    ));
+}
+
+
+    // Menyimpan barang baru ke dalam database
     public function store(Request $request)
     {
         $model = new Barang;
@@ -55,69 +46,45 @@ class PendataanBarangController extends Controller
         $model->alamat = $request->alamat;
         $model->no_kartu_bpjs = $request->no_kartu_bpjs;
 
-        $model->save();
-        return redirect('/pendataan/jenis-barang');
+        $model->save(); // Menyimpan data barang baru ke database
 
+        return redirect('/pendataan/jenis-barang'); // Mengalihkan kembali ke halaman daftar barang
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // Menampilkan form edit untuk barang yang ada
     public function edit($id)
     {
         $model = Barang::find($id);
         $jenisBarang = JenisBarang::all();
+
         return view('pendataan.edit', compact(
             'model',
             'jenisBarang',
         ));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // Mengupdate barang yang sudah ada dalam database
     public function update(Request $request, $id)
     {
         $model = Barang::find($id);
+
         $model->nama = $request->nama;
-        $model->tanggal_meninggal = $request->tanggal_meninggal;
+        $model->tanggal_meninggal = date('Y-m-d', strtotime($request->tanggal_meninggal));
         $model->jenis_kelamin = $request->jenis_kelamin;
         $model->alamat = $request->alamat;
         $model->no_kartu_bpjs = $request->no_kartu_bpjs;
 
-        $model->save();
-        return redirect('pendataan');
+        $model->save(); // Menyimpan perubahan data barang ke database
 
+        return redirect('/pendataan/jenis-barang'); // Mengalihkan kembali ke halaman daftar barang
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // Menghapus barang dari database
     public function destroy($id)
     {
         $model = Barang::find($id);
-        $model->delete();
-        return redirect('pendataan');
+        $model->delete(); // Menghapus data barang dari database
+
+        return redirect('/pendataan/jenis-barang'); // Mengalihkan kembali ke halaman daftar barang
     }
 }
