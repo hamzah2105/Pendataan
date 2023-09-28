@@ -20,15 +20,27 @@ class AuthController extends Controller
     {
         // Validasi data masukan pengguna
         $this->validate($request, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => 'required|string|min:8|confirmed',
+        'nama_lengkap' => 'required|string|max:255',
+        'no_ktp' => 'required|integer',
+        'no_bpjs' => 'required|integer',
+        'npwp' => 'required|integer',
+        'pekerjaan' => 'required|string|max:255',
+        'nomor_hp' => 'required|integer',
         ]);
 
         // Buat pengguna baru dalam database
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->nama_lengkap = $request->nama_lengkap;
+        $user->no_ktp = $request->no_ktp;
+        $user->no_bpjs = $request->no_bpjs;
+        $user->npwp = $request->npwp;
+        $user->pekerjaan = $request->pekerjaan;
+        $user->nomor_hp = $request->nomor_hp;
         $user->password = Hash::make($request->password);
         $user->save();
 
@@ -36,6 +48,6 @@ class AuthController extends Controller
         auth()->login($user);
 
         // Redirect ke halaman yang sesuai setelah registrasi
-        return redirect('/home');
+        return redirect('/login');
     }
 }

@@ -5,19 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <style>
-        /* Tambahkan gaya CSS sesuai kebutuhan Anda */
+        /* Gaya CSS untuk form registrasi */
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
-            margin: 0;
-            display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
         }
 
         .container {
-            max-width: 400px;
+            max-width: 600px;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
@@ -42,6 +39,15 @@
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            max-width: 400px;
+        }
+        .button{
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 400px;
         }
 
         .register-container button {
@@ -89,7 +95,25 @@
                 <input type="password" placeholder="Confirm Password" name="password_confirmation" required>
             </p>
             <p>
-                <button type="Submit">Register</button>
+                <input type="text" placeholder="Nama Lengkap" name="nama_lengkap" required>
+            </p>
+            <p>
+                <input type="number" placeholder="Nomor KTP" name="no_ktp" required>
+            </p>
+            <p>
+                <input type="number" placeholder="Nomor BPJS" name="no_bpjs" required>
+            </p>
+            <p>
+                <input type="number" placeholder="NPWP" name="npwp" required>
+            </p>
+            <p>
+                <input type="text" placeholder="Pekerjaan" name="pekerjaan" required>
+            </p>
+            <p>
+                <input type="number" placeholder="Nomor HP" name="nomor_hp" required>
+            </p>
+            <p>
+                <button class="button" type="Submit">Register</button>
             </p>
         </form>
     </div>

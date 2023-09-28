@@ -1,6 +1,6 @@
 <html>
 <head>
-    <!-- <link rel="stylesheet" href={{ asset('css/style.css') }}> -->
+    <link rel="stylesheet" href={{ asset('css/style.css') }}>
 	<title>Login</title>
     <style>
         .container {
@@ -92,6 +92,10 @@ body {
                     <button type="Submit">Login</button>
                 </p>
             </form>
+            <!-- Tambahkan tombol "Register" di bawah formulir login -->
+            <p style="text-align: center;">
+                Belum punya akun? <a href="{{ route('register') }}">Register</a>
+            </p>
         </div>
     </div>
 </body>
