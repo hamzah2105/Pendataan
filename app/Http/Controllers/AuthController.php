@@ -21,8 +21,8 @@ class AuthController extends Controller
         // Validasi data masukan pengguna
         $this->validate($request, [
         'name' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:users',
-        'password' => 'required|string|min:8|confirmed',
+        'email' => 'required|string|email|max:255|unique:users,email', // Ubah "user" menjadi "users,email"
+        'password' => 'required|string',
         'nama_lengkap' => 'required|string|max:255',
         'no_ktp' => 'required|integer',
         'no_bpjs' => 'required|integer',
@@ -30,6 +30,7 @@ class AuthController extends Controller
         'pekerjaan' => 'required|string|max:255',
         'nomor_hp' => 'required|integer',
         ]);
+
 
         // Buat pengguna baru dalam database
         $user = new User;
