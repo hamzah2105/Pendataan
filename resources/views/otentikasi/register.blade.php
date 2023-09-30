@@ -116,6 +116,9 @@
             <button class="button" type="submit">Register</button>
         </p>
     </form>
+        <p style="text-align: center; margin-top: 10px;">
+            Sudah punya akun? <a href="{{ route('login') }}">Login di sini</a>
+        </p>
 </div>
 </body>
 </html>
