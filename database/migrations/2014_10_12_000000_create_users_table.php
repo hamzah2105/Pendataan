@@ -20,11 +20,11 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('nama_lengkap');
-            $table->integer('no_ktp');
-            $table->integer('no_bpjs');
-            $table->integer('npwp');
+            $table->bigInteger('no_ktp');
+            $table->bigInteger('no_bpjs');
+            $table->bigInteger('npwp');
             $table->string('pekerjaan');
-            $table->integer('nomor_hp');
+            $table->bigInteger('nomor_hp');
             $table->rememberToken();
             $table->timestamps();
         });

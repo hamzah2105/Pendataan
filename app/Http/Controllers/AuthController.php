@@ -10,10 +10,15 @@ use App\Models\User; // Tambahkan impor ini di atas
 class AuthController extends Controller
 {
     // Metode untuk menampilkan formulir registrasi
-    public function showRegistrationForm()
-    {
-        return view('otentikasi.register');
+public function showRegistrationForm()
+{
+    if(auth()->check()) {
+        return redirect('/home'); // Jika pengguna sudah login, arahkan ke halaman home atau halaman lain yang sesuai
     }
+
+    return view('otentikasi.register');
+}
+
 
     // Metode untuk memproses registrasi pengguna
     public function register(Request $request)
