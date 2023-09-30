@@ -75,47 +75,47 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2 class="register-header">Register</h2>
-        <form method="POST" class="register-container" action="{{ route('register') }}">
-            @csrf
-            @if(session('message'))
-                <p class="danger">{{ session('message') }}</p>
-            @endif
-            <p>
-                <input type="text" placeholder="Name" name="name" required>
-            </p>
-            <p>
-                <input type="email" placeholder="Email" name="email" required>
-            </p>
-            <p>
-                <input type="password" placeholder="Password" name="password" required>
-            </p>
-            <p>
-                <input type="password" placeholder="Confirm Password" name="password_confirmation" required>
-            </p>
-            <p>
-                <input type="text" placeholder="Nama Lengkap" name="nama_lengkap" required>
-            </p>
-            <p>
-                <input type="number" placeholder="Nomor KTP" name="no_ktp" required>
-            </p>
-            <p>
-                <input type="number" placeholder="Nomor BPJS" name="no_bpjs" required>
-            </p>
-            <p>
-                <input type="number" placeholder="NPWP" name="npwp" required>
-            </p>
-            <p>
-                <input type="text" placeholder="Pekerjaan" name="pekerjaan" required>
-            </p>
-            <p>
-                <input type="number" placeholder="Nomor HP" name="nomor_hp" required>
-            </p>
-            <p>
-                <button class="button" type="Submit">Register</button>
-            </p>
-        </form>
-    </div>
+<div class="container">
+    <h2 class="register-header">Register</h2>
+    <form method="POST" class="register-container" action="{{ route('register') }}">
+        @csrf
+        @if(session('message'))
+            <p class="danger">{{ session('message') }}</p>
+        @endif
+        <p>
+            <input type="text" placeholder="Name" name="name" required>
+        </p>
+        <p>
+            <input type="email" placeholder="Email" name="email" required>
+        </p>
+        <p>
+            <input type="password" placeholder="Password" name="password" required>
+        </p>
+        <p>
+            <input type="password" placeholder="Confirm Password" name="password_confirmation" required>
+        </p>
+        <p>
+            <input type="text" placeholder="Nama Lengkap" name="nama_lengkap" required>
+        </p>
+        <p>
+            <input type="number" placeholder="Nomor KTP" name="no_ktp" required>
+        </p>
+        <p>
+            <input type="number" placeholder="Nomor BPJS" name="no_bpjs" required>
+        </p>
+        <p>
+            <input type="number" placeholder="NPWP" name="npwp" required>
+        </p>
+        <p>
+            <input type="text" placeholder="Pekerjaan" name="pekerjaan" required>
+        </p>
+        <p>
+            <input type="number" placeholder="Nomor HP" name="nomor_hp" required>
+        </p>
+        <p>
+            <button class="button" type="submit">Register</button>
+        </p>
+    </form>
+</div>
 </body>
 </html>
